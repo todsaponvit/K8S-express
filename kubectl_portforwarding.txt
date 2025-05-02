@@ -1,3 +1,5 @@
+more detail: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_port-forward/
+
   # Listen on ports 5000 and 6000 locally, forwarding data to/from ports 5000 and 6000 in the pod
   kubectl port-forward pod/mypod 5000 6000
   
