@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "This script install kubectl, helm, kind for create K8S Cluster"
+echo "1/3 Starting Install kubectl"
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
 echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
@@ -8,4 +10,10 @@ chmod +x kubectl
 mkdir -p ~/.local/bin
 mv ./kubectl ~/.local/bin/kubectl
 kubectl version --client
-echo "1/3 Install K8S Successfull"
+echo "1/3 Install kubectl Successfull"
+
+echo "2/3 Starting Install helm"
+wget https://get.helm.sh/helm-v3.17.3-linux-amd64.tar.gz
+tar -zxvf helm-v3.17.3-linux-amd64.tar.gz
+sudo mv linux-amd64/helm /usr/local/bin/helm
+echo "2/3 Install helm Successfull"
