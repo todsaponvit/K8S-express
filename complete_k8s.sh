@@ -17,3 +17,11 @@ wget https://get.helm.sh/helm-v3.17.3-linux-amd64.tar.gz
 tar -zxvf helm-v3.17.3-linux-amd64.tar.gz
 sudo mv linux-amd64/helm /usr/local/bin/helm
 echo "2/3 Install helm Successfull"
+
+echo "3/3 Starting Install kind"
+[ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.27.0/kind-linux-amd64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
+echo "3/3 Install kind Successfull"
+
+echo "### This Cluster Ready for run K8S ###"
